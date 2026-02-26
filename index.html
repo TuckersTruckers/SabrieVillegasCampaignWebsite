@@ -256,23 +256,107 @@
       text-decoration: none;
     }
 
-    @media (max-width: 992px) {
-      .hero-split, .family-split, .election-getinvolved { min-height: auto; height: auto; }
-      .hero-bg-left, .family-left, .family-right, .election-getinvolved .leadership-left, .election-getinvolved .leadership-right {
-        width: 100%; clip-path: none; position: relative; height: 50vh;
-      }
-      .hero-content-right { padding: 40px 20px; text-align: center; }
-      .hero h1 { font-size: 3rem; }
-      .family-split { height: 700px; }
-      .family-right { top: -30%; height: 130%; }
-      .election-getinvolved { height: 1200px; }
-      .gap-logo { width: 140px; height: 140px; }
-      .election-overlay-top, .election-overlay-bottom { max-width: 85%; padding: 1.4rem 1.8rem; }
-      .election-overlay-top { top: 25%; }
-      .election-overlay-bottom { top: 70%; }
-      .headshot { width: 300px; height: 300px; transform: translateX(0); }
-      .section { padding: 50px 0 30px 0; }
-    }
+   @media (max-width: 992px) {
+  /* General */
+  .section { padding: 50px 0 30px 0; }
+
+  /* Hero section – prevent name cutoff, shorten a bit */
+  .hero-split {
+    min-height: 50vh;              /* much shorter on phone */
+  }
+  .hero-content-right {
+    padding: 40px 20px !important;
+    text-align: center;
+  }
+  .hero-content-right h1 {
+    font-size: 3rem !important;    /* smaller to prevent cutoff */
+  }
+  .hero-content-right h2 {
+    font-size: 2.2rem !important;
+  }
+  .hero-content-right .lead {
+    font-size: 1.4rem !important;
+  }
+  .hero-content-right .fs-2 {
+    font-size: 1.8rem !important;
+  }
+
+  /* Family section – stack photos full-width, no cutoff */
+  .family-split {
+    height: auto !important;
+    min-height: 800px;             /* enough room for stacked photos */
+  }
+  .family-left,
+  .family-right {
+    position: relative !important;
+    width: 100% !important;
+    height: 50vh !important;       /* each takes half the space */
+    top: 0 !important;
+    clip-path: none !important;    /* remove diagonal cut on mobile */
+    background-size: cover;
+    background-position: center;
+  }
+  .family-right {
+    margin-top: 20px;              /* space between stacked photos */
+  }
+
+  /* Election / MeansBusiness section – stack photos, reposition overlays & logo */
+  .election-getinvolved {
+    height: auto !important;
+    min-height: 1200px;            /* taller to fit stacked content */
+  }
+  .leadership-left,
+  .leadership-right {
+    position: relative !important;
+    width: 100% !important;
+    height: 50vh !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    clip-path: none !important;
+    background-size: cover;
+    background-position: center;
+  }
+  .leadership-right {
+    margin-top: 20px;
+  }
+
+  /* Logo – smaller and centered between stacked photos */
+  .gap-logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 20px auto;
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  /* Overlays – stack them vertically, center them */
+  .election-overlay-top,
+  .election-overlay-bottom {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 20px auto;
+    max-width: 90%;
+    padding: 1.4rem 1.6rem;
+  }
+  .election-overlay-top {
+    margin-top: 20px;
+  }
+  .election-overlay-bottom {
+    margin-top: 20px;
+  }
+
+  /* Headshot – center and smaller */
+  .headshot {
+    width: 280px !important;
+    height: 280px !important;
+    transform: translateX(0) !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -419,6 +503,7 @@
 </body>
 
 </html>
+
 
 
 
