@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabrie Villegas - Plainview ISD School Board Precinct 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    html {
+      scroll-behavior: smooth; /* enables smooth scrolling to #election */
+    }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background: #f8f9fa; }
+    .red-bg { background-color: #c8102e; color: white; }
+    .navy-bg { background-color: #003087; color: white; }
+ 
+    /* Hero Split Layout */
+    .hero-split {
+      position: relative;
+      min-height: 80vh;
+      overflow: hidden;
+      background: #003087;
+    }
+    .hero-bg-left {
+      position: absolute;
+      top: 0; left: 0;
+      width: 55%; height: 100%;
+      background: url('images/candid.jpg') center/cover no-repeat;
+      background-position: center 20%;
+      clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+    .hero-content-right {
+      position: relative;
+      z-index: 2;
+      padding: 80px 40px;
+      color: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-content-right h1 { font-size: 4.5rem; font-weight: 900; text-shadow: 3px 3px 6px rgba(0,0,0,0.7); }
+ 
+    /* Red button for VOTE */
+    .btn-red {
+      background-color: #c8102e;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.25rem;
+      padding: 10px 24px;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+      border-radius: 0.375rem;
+      display: inline-block !important;
+      width: auto !important;
+    }
+    .btn-red:hover {
+      background-color: #a00d24;
+    }
+
+    /* Blue button for register/check */
+    .btn-blue {
+      background-color: #003087;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.4rem;
+      padding: 18px 50px;
+      transition: background-color 0.3s;
+    }
+    .btn-blue:hover {
+      background-color: #002366;
+    }
+
+    /* Family Section */
+    .family-section {
+      background: #1e40af;
+      color: white;
+      padding: 0;
+      margin-bottom: 0;
+    }
+    .family-text {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 40px 20px;
+      text-align: center;
+      margin: 0;
+    }
+    .family-split {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+    .family-left {
+      position: absolute;
+      top: 0; left: 0;
+      width: 55%; height: 100%;
+      background: url('images/family.jpg') center/cover no-repeat #1e40af;
+      background-position: center 10%;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .family-right {
+      position: absolute;
+      top: -40%; right: 0;
+      width: 55%; height: 150%;
+      background: url('images/kids.jpg') center/cover no-repeat #1e40af;
+      background-position: center 25%;
+      clip-path: polygon(-5% 0, 100% 0, 100% 100%, 18% 100%);
+    }
+
+    /* Headshot */
+    .headshot {
+      width: 380px;
+      height: 380px;
+      object-fit: cover;
+      object-position: 45% 30%;
+      border: 10px solid white;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+      border-radius: 50%;
+      clip-path: circle(50% at 50% 50%);
+      display: block;
+      margin: 0 auto;
+      transform: translateX(50px);
+    }
+
+    .section { padding: 60px 0 40px 0; }
+
+    .priority-card {
+      background: white;
+      color: #333;
+      border: 4px solid #c8102e;
+      border-radius: 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+      padding: 1.25rem !important;
+    }
+    .priority-card h4 {
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+    }
+    .priority-card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+    .priority-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+
+    /* Combined Election + Get Involved + Photos */
+    .election-getinvolved {
+      position: relative;
+      height: 800px;
+      overflow: hidden;
+      margin: 0;
+    }
+    .election-getinvolved .leadership-left,
+    .election-getinvolved .leadership-right {
+      position: absolute;
+      top: 0;
+      width: 38%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .election-getinvolved .leadership-left {
+      left: 0;
+      background-image: url('images/meansbusiness.jpg');
+      clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+    .election-getinvolved .leadership-right {
+      right: 0;
+      background-image: url('images/meansbusiness2.jpg');
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+
+    /* Logo in the white trapezoid gap */
+    .gap-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      background: rgba(0, 48, 135, 0.82);
+      border-radius: 50%;
+      padding: 15px;
+      z-index: 1;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gap-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Two separate overlay boxes */
+    .election-overlay-top,
+    .election-overlay-bottom {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 48, 135, 0.82);
+      color: white;
+      padding: 1.6rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      max-width: 70%;
+      z-index: 2;
+    }
+    .election-overlay-top {
+      top: 12%; /* your current raised position */
+    }
+    .election-overlay-bottom {
+      top: 62%;
+    }
+    .election-overlay-top h3 {
+      font-weight: 900;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .election-overlay-top .election-dates .row {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .election-overlay-bottom h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .election-overlay-bottom p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .election-overlay a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .election-overlay a:hover {
+      text-decoration: none;
+    }
+
+    @media (max-width: 992px) {
+      .hero-split, .family-split, .election-getinvolved { min-height: auto; height: auto; }
+      .hero-bg-left, .family-left, .family-right, .election-getinvolved .leadership-left, .election-getinvolved .leadership-right {
+        width: 100%; clip-path: none; position: relative; height: 50vh;
+      }
+      .hero-content-right { padding: 40px 20px; text-align: center; }
+      .hero h1 { font-size: 3rem; }
+      .family-split { height: 700px; }
+      .family-right { top: -30%; height: 130%; }
+      .election-getinvolved { height: 1200px; }
+      .gap-logo { width: 140px; height: 140px; }
+      .election-overlay-top, .election-overlay-bottom { max-width: 85%; padding: 1.4rem 1.8rem; }
+      .election-overlay-top { top: 25%; }
+      .election-overlay-bottom { top: 70%; }
+      .headshot { width: 300px; height: 300px; transform: translateX(0); }
+      .section { padding: 50px 0 30px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Split -->
+  <section class="hero-split">
+    <div class="hero-bg-left"></div>
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-lg-6 d-none d-lg-block"></div>
+        <div class="col-lg-6 hero-content-right">
+          <h1>SABRIE VILLEGAS</h1>
+          <h2 class="display-4 fw-bold">FOR PLAINVIEW ISD SCHOOL BOARD TRUSTEE</h2>
+          <p class="lead fs-1 mt-0">PRECINCT 3</p>
+          <div class="text-center mt-4">
+            <p class="fs-2 fw-bold mb-3">The Leader This School Board Needs</p>
+            <a href="#election" class="btn btn-red">
+              VOTE MAY 2, 2026 →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About – red -->
+  <section class="section red-bg">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-white">
+          <h2 class="mb-4 fw-bold">ABOUT SABRIE</h2>
+          <p>I'm Sabrie Villegas — a proud parent, businesswoman, and advocate who believes our schools deserve leadership that listens and leads.</p>
+          <p>As a mother actively involved in my children's education, I understand firsthand the importance of transparency, accountability, and strong communication between families and our district.</p>
+          <p>I'm not afraid to ask hard questions, stand up for what's right, and work collaboratively to find real solutions. Our community deserves a school board member who is present, prepared, and passionate about putting students first — every single time.</p>
+          <p class="fw-bold mt-4 fs-5">Everything I do starts at home. My family is my foundation — and the reason I care so deeply about our schools.</p>
+        </div>
+        <div class="col-md-6 text-center mb-5 mb-md-0 d-flex justify-content-center align-items-center">
+          <img src="images/smilecropped.jpg" alt="Sabrie Villegas smiling warmly (cropped)" class="headshot">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Family Section -->
+  <section class="family-section">
+    <div class="family-text">
+      <div class="container">
+        <h2 class="mb-3 fw-bold">Our Families, Our Way</h2>
+        <p class="lead fs-4">Like so many families in Plainview, we want safe classrooms, strong academics, and real opportunities for our kids' success.</p>
+        <p class="fs-5 fw-bold mt-3">I'm running for Precinct 3 to fight for our kids' future — because this community raised me, and I want to give back.</p>
+      </div>
+    </div>
+    <div class="family-split">
+      <div class="family-left"></div>
+      <div class="family-right"></div>
+    </div>
+  </section>
+
+  <!-- My Commitments to You – red -->
+  <section class="section red-bg">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">MY COMMITMENTS TO YOU</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card priority-card h-100 text-center">
+            <h4>Transparency & Accountability</h4>
+            <p>Families deserve honest, open leadership—no surprises, just clear communication and results.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card priority-card h-100 text-center">
+            <h4>Safe & Supportive Schools</h4>
+            <p>Secure environments where every child feels safe, respected, and ready to thrive.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card priority-card h-100 text-center">
+            <h4>Strong Academics & Future Readiness</h4>
+            <p>Resources for teachers and focus on preparing our children for real-world success.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combined Election + Get Involved + Photos with logo in gap -->
+  <section class="election-getinvolved position-relative" id="election">
+    <div class="leadership-left"></div>
+    <div class="leadership-right"></div>
+   
+    <!-- Logo in the white trapezoid gap -->
+    <div class="gap-logo">
+      <img src="images/logo.png" alt="Sabrie Villegas Campaign Logo">
+    </div>
+   
+    <!-- Top blue box: Election info -->
+    <div class="election-overlay-top">
+      <h3 class="fw-bold mb-3">ELECTION 2026 – YOUR VOICE MATTERS</h3>
+      <div class="row justify-content-center g-3 mb-3 election-dates">
+        <div class="col-md-4 col-12 mb-2 mb-md-0">
+          <strong>Register by:</strong><br>April 2, 2026
+        </div>
+        <div class="col-md-4 col-12 mb-2 mb-md-0">
+          <strong>Early Voting:</strong><br>April 20–28, 2026
+        </div>
+        <div class="col-md-4 col-12">
+          <strong>Election Day:</strong><br>May 2, 2026
+        </div>
+      </div>
+      <p class="fs-4 mb-0">
+        Check/register at
+        <a href="https://www.votetexas.gov/" target="_blank" class="text-white fw-bold text-decoration-underline">
+          votetexas.gov
+        </a> today!
+      </p>
+    </div>
+   
+    <!-- Bottom blue box: Get Involved -->
+    <div class="election-overlay-bottom">
+      <h4 class="fw-bold mb-2">GET INVOLVED</h4>
+      <p class="lead fs-5 mb-2">Look for campaign signs around town, attend local events, or connect through neighbors.</p>
+      <p class="fs-5 mb-1">
+        Website: <a href="https://www.VoteForSabrie.com" target="_blank" class="text-white fw-bold text-decoration-underline">www.VoteForSabrie.com</a>
+      </p>
+      <p class="fs-5 mb-1">
+        TikTok: <a href="https://www.tiktok.com/@sabrierosevillegas" target="_blank" class="text-white fw-bold text-decoration-underline">@sabrierosevillegas</a>
+      </p>
+      <p class="fs-5 mb-0">
+        Facebook: <a href="#" target="_blank" class="text-white fw-bold text-decoration-underline">Sabrie Villegas for Plainview School Board</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 text-center">
+    <div class="container">
+      <p class="fs-5 fw-bold">SABRIE VILLEGAS FOR SCHOOL BOARD TRUSTEE – PRECINCT 3</p>
+      <p>Paid for by Sabrie Villegas — POLITICAL ADVERTISEMENT PAID FOR BY SABRIE VILLEGAS</p>
+      <p>© 2026 Sabrie Villegas Campaign. All rights reserved. | Election Day: May 2, 2026</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
