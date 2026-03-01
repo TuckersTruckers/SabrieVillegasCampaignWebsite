@@ -147,81 +147,114 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.2);
     }
 
-    /* Combined Election + Get Involved + Photos */
-.election-getinvolved {
-  position: relative;
-  height: auto;                    /* ← key change: no fixed height */
-  min-height: 700px;               /* fallback minimum – adjust if needed */
-  overflow: visible;               /* ← changed: allow natural height */
-  margin: 0;
-}
+/* Combined Election + Get Involved + Photos */
+    .election-getinvolved {
+      position: relative;
+      height: 1000px;
+      overflow: hidden;
+      margin: 0;
+    }
+    .election-getinvolved .leadership-left,
+    .election-getinvolved .leadership-right {
+      position: absolute;
+      top: 0;
+      width: 34%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .election-getinvolved .leadership-left {
+      left: 0;
+      width: 36%;
+      height: 100%;
+      background-image: url('images/meansbusiness.jpg');
+      background-size: 100% auto;          /* ← "zoom out" by making background larger than container */
+      background-position: center 20%;     /* ← adjust vertical position if needed (higher % = more from top) */
+      clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+    .election-getinvolved .leadership-right {
+      right: 0;
+      width: 36%;
+      height: 100%;
+      background-image: url('images/meansbusiness2.jpg');
+      background-size: 106% auto;          /* ← "zoom out" by making background larger than container */
+      background-position: center 20%;     /* ← adjust vertical position if needed (higher % = more from top) */
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
 
-.election-getinvolved .leadership-left,
-.election-getinvolved .leadership-right {
-  position: absolute;
-  top: 0;
-  width: 34%;
-  height: 100%;                    /* still full container height */
-  background-size: contain;        /* ← key fix: no repeating, full image visible */
-  background-position: center;
-  background-repeat: no-repeat;    /* ← explicitly prevent repeating */
-}
+    /* Logo in the white trapezoid gap */
+    .gap-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      background: rgba(0, 48, 135, 0.82);
+      border-radius: 50%;
+      padding: 15px;
+      z-index: 1;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gap-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-.election-getinvolved .leadership-left {
-  left: 0;
-  width: 36%;
-  background-image: url('images/meansbusiness.jpg');
-  background-size: 100% auto;      /* keep your zoom-out */
-  background-position: center 20%;
-  clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
-  z-index: 1;
-}
-
-.election-getinvolved .leadership-right {
-  right: 0;
-  width: 36%;
-  background-image: url('images/meansbusiness2.jpg');
-  background-size: 106% auto;      /* keep your zoom-out */
-  background-position: center 20%;
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
-  z-index: 1;
-}
-
-/* Make logo smaller to fit shorter section */
-.gap-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;                    /* ← reduced from 280px – adjust 180–220px */
-  height: 200px;
-  background: rgba(0, 48, 135, 0.82);
-  border-radius: 50%;
-  padding: 12px;                   /* slightly tighter */
-  z-index: 1;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Shrink both overlays so they fit better in shorter section */
-.election-overlay-top,
-.election-overlay-bottom {
-  padding: 1.2rem 1.8rem;          /* reduced padding */
-  max-width: 65%;                  /* narrower so less vertical space needed */
-  font-size: 0.95rem;              /* slightly smaller text if needed */
-}
-
-.election-overlay-top h3 {
-  font-size: 1.6rem;               /* smaller heading */
-  margin-bottom: 0.8rem;
-}
-
-.election-overlay-bottom h4 {
-  font-size: 1.4rem;
-}
+    /* Two separate overlay boxes */
+    .election-overlay-top,
+    .election-overlay-bottom {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 48, 135, 0.82);
+      color: white;
+      padding: 1.6rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      max-width: 70%;
+      z-index: 2;
+    }
+    .election-overlay-top {
+      top: 12%; /* your current raised position */
+    }
+    .election-overlay-bottom {
+      top: 68%;
+    }
+    .election-overlay-top h3 {
+      font-weight: 900;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .election-overlay-top .election-dates .row {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .election-overlay-bottom h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .election-overlay-bottom p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .election-overlay a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .election-overlay a:hover {
+      text-decoration: none;
+    }
    @media (max-width: 992px) {
   /* General */
   .section { padding: 50px 0 30px 0; }
@@ -469,6 +502,7 @@
 </body>
 
 </html>
+
 
 
 
